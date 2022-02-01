@@ -1,0 +1,4 @@
+.dashboard-contents {
+  height: calc(100% - 4.9rem);
+  overflow: auto;
+}

@@ -1,0 +1,20 @@
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+  content: "";
+}
+.custom-file-input::before {
+  content: "Select Photos";
+  outline: none;
+  white-space: nowrap;
+}
+.sign-form {
+  max-width: 30rem;
+  width: 100%;
+}
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+.d-flex {
+  display: flex !important;
+}
