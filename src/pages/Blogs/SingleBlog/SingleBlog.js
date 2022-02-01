@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const SingleBlog = ({ blog }) => {
+const SingleBlog = ({ blog, isProfile }) => {
   const [blogWriter, setBlogWriter] = useState({});
 
   useEffect(() => {
@@ -12,10 +12,13 @@ const SingleBlog = ({ blog }) => {
   }, [blog.email]);
   return (
     <>
-      <NavLink to={`/blogs/${blog._id}`}>
-        <div className="p-5">
-          <div className="flex justify-between items-start">
-            <div className="flex items-center space-x-4">
+      <div className="p-5">
+        {!isProfile && (
+          <div className="flex justify-between items-start mb-4">
+            <NavLink
+              to={`/user/${blogWriter._id}`}
+              className="flex items-center space-x-2"
+            >
               <div className="rounded-full p-0 w-10 h-10 border border-gray-300 overflow-hidden flex items-center justify-center bg-white">
                 <img
                   src={
@@ -31,22 +34,26 @@ const SingleBlog = ({ blog }) => {
               <div>
                 <h1>{blog.name}</h1>
               </div>
-            </div>
-            <i className="fas fa-expand-alt text-gray-800"></i>
+            </NavLink>
+            <NavLink to={`/blogs/${blog._id}`}>
+              <i className="fas fa-expand-alt text-gray-800"></i>
+            </NavLink>
           </div>
-          <div className="flex space-x-4 items-center pt-4">
+        )}
+        <NavLink to={`/blogs/${blog._id}`}>
+          <div className="flex flex-col md:flex-row md:space-x-4 items-center">
             <img
               src={blog.photo}
               alt="IMAGE_NOT_FOUND"
-              className="w-56 rounded"
+              className="w-full md:w-56 mb-2 md:mb-0 rounded"
             />
             <div>
               <h1 className="font-bold">{blog.title}</h1>
               <p className="text-justify">{blog.description.slice(0, 180)}..</p>
             </div>
           </div>
-        </div>
-      </NavLink>
+        </NavLink>
+      </div>
     </>
   );
 };

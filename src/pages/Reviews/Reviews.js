@@ -32,7 +32,7 @@ const Reviews = ({ sliceQuantity }) => {
   return (
     <>
       {reviews?.length >= 1 && (
-        <div className={`px-3 md:px-14 lg:px-32 ${!sliceQuantity && "my-7"}`}>
+        <div className={`px-3 md:px-14 lg:px-32 my-7`}>
           <div className="flex mb-5 rounded-lg flex-col md:flex-row justify-between">
             <img
               src="https://i.ibb.co/fDkLmtv/message-2872335-2389549.webp"

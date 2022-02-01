@@ -58,7 +58,7 @@ const App = () => {
               <PrivateRoute path="/dashboard">
                 <Dashboard></Dashboard>
               </PrivateRoute>
-              <Route exact path="/profile/:userId">
+              <Route exact path="/user/:userId">
                 <FullContainer>
                   <UserProfile></UserProfile>
                 </FullContainer>

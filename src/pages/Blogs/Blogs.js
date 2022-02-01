@@ -14,6 +14,7 @@ const Blogs = ({ isTwoColumn }) => {
         setBlogs(data.blogs);
         setCount(data.count);
         setIsLoading(false);
+        window.scrollTo(0, 0);
       });
   }, [currentPage]);
   const pageNumbers = [...Array(Math.ceil(count / 10)).keys()];
@@ -75,7 +76,7 @@ const Blogs = ({ isTwoColumn }) => {
         >
           {blogs.map((blog) => {
             return (
-              <div key={blog._id} className="mb-2 shadow-sm bg-white">
+              <div key={blog._id} className="mb-2 shadow-sm bg-white rounded">
                 <SingleBlog blog={blog}></SingleBlog>
               </div>
             );
