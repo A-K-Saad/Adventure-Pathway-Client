@@ -9,11 +9,13 @@ const UserProfile = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/specificUserId/${userId}`)
+    fetch(`https://adventure-pathway.herokuapp.com/specificUserId/${userId}`)
       .then((res) => res.json())
       .then((data) => {
         setCurrentUser(data);
-        fetch(`http://localhost:5000/users/${data.email}/blogs`)
+        fetch(
+          `https://adventure-pathway.herokuapp.com/users/blogs/${data.email}`
+        )
           .then((res) => res.json())
           .then((data) => {
             setBlogs(data);
@@ -40,10 +42,10 @@ const UserProfile = () => {
   return (
     <>
       <div className="max-w-2xl m-auto w-full">
-        <div className="h-32 w-full object-cover lg:h-48 bg-gradient-to-r from-indigo-500 to-green-200 via-blue-300"></div>
+        <div className="h-32 w-full object-cover lg:h-48 bg-gradient-to-r from-indigo-500 to-green-200 via-blue-300 rounded-b-lg"></div>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="-mt-12 md:-mt-16 md:flex md:items-center flex-col justify-center">
-            <div className="rounded-full ring-4 ring-white h-32 w-32 m-auto bg-gray-50 flex overflow-hidden">
+            <div className="rounded-full ring-4 ring-white h-32 w-32 m-auto bg-gray-50 flex overflow-hidden justify-center items-center">
               <img
                 className="max-w-none h-full w-auto"
                 src={currentUser?.avatar || "https://i.ibb.co/qgbdqZ3/male.png"}

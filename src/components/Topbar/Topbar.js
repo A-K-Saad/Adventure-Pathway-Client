@@ -33,7 +33,7 @@ const Topbar = ({ setIsMenuOpen }) => {
             <i className="fas fa-sign-out-alt"></i>{" "}
             <span className="hidden md:inline">Sign Out</span>
           </NavLink>
-          <div className="overflow-hidden rounded-full p-0 w-10 h-10 border border-gray-300">
+          <div className="rounded-full p-0 w-10 h-10 border border-gray-300 overflow-hidden flex items-center justify-center bg-white my-3 md:m-auto cursor-pointer">
             <img
               src={
                 user?.photoURL ||

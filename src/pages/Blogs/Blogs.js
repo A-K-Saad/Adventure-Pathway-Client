@@ -4,20 +4,21 @@ import SingleBlog from "./SingleBlog/SingleBlog";
 const Blogs = ({ isTwoColumn }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [blogs, setBlogs] = useState([]);
-  const [count, setCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [pageNumbers, setPageNumbers] = useState([1]);
   useEffect(() => {
     setIsLoading(true);
-    fetch("https://adventure-pathway.herokuapp.com/blogs?currentPage=0")
+    fetch(`http://localhost:5000/blogs?currentPage=${currentPage}`)
       .then((res) => res.json())
       .then((data) => {
         setBlogs(data.blogs);
-        setCount(data.count);
+        const count = data.count;
+        setPageNumbers([...Array(Math.ceil(count / 5)).keys()]);
         setIsLoading(false);
         window.scrollTo(0, 0);
-      });
+      })
+      .catch((err) => console.log(err));
   }, [currentPage]);
-  const pageNumbers = [...Array(Math.ceil(count / 10)).keys()];
 
   const Pagination = () => {
     return (

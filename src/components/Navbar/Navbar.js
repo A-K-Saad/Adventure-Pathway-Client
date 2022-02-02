@@ -49,10 +49,10 @@ const Navbar = () => {
                   {user?.email && (
                     <NavLink
                       onMouseUp={(e) => ripple.create(e, "light")}
-                      to="/dashboard"
+                      to="/feed"
                       className="px-4 py-1 md:py-3"
                     >
-                      Dashboard
+                      Feed
                     </NavLink>
                   )}
                   <NavLink

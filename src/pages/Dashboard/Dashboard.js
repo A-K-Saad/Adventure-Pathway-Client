@@ -38,7 +38,7 @@ const Dashboard = () => {
                     <div className="h-32 w-full object-cover lg:h-48 bg-gradient-to-r from-indigo-500 to-green-200 via-blue-300"></div>
                     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                       <div className="-mt-12 md:-mt-16 md:flex md:items-center flex-col justify-center">
-                        <div className="rounded-full ring-4 ring-white h-32 w-32 m-auto bg-gray-50 flex overflow-hidden">
+                        <div className="rounded-full ring-4 ring-white h-32 w-32 m-auto bg-gray-50 flex overflow-hidden items-center justify-center">
                           <img
                             className="max-w-none h-full w-auto"
                             src={

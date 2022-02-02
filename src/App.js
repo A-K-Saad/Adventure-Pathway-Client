@@ -14,6 +14,7 @@ import Blogs from "./pages/Blogs/Blogs";
 import BlogDetails from "./pages/BlogDetails/BlogDetails";
 import Reviews from "./pages/Reviews/Reviews";
 import UserProfile from "./pages/UserProfile/UserProfile";
+import Feed from "./pages/Feed/Feed";
 const App = () => {
   const FullContainer = ({ children }) => {
     return (
@@ -55,6 +56,11 @@ const App = () => {
                   <BlogDetails></BlogDetails>
                 </FullContainer>
               </Route>
+              <PrivateRoute path="/feed">
+                <FullContainer>
+                  <Feed></Feed>
+                </FullContainer>
+              </PrivateRoute>
               <PrivateRoute path="/dashboard">
                 <Dashboard></Dashboard>
               </PrivateRoute>
