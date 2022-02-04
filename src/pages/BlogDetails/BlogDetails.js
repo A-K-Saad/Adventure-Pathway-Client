@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { NavLink, useHistory, useParams } from "react-router-dom";
 import Ripple from "material-ripple-effects";
 import useAuth from "../../hooks/useAuth";
 import "animate.css";
@@ -80,17 +80,19 @@ const BlogDetails = () => {
   return (
     <>
       <div className="w-full md:w-3/5 mx-auto p-5">
-        <div className="flex items-center space-x-4">
-          <div className="rounded-full p-0 w-10 h-10 border border-gray-300 overflow-hidden flex items-center justify-center bg-white">
-            <img
-              src={blogWriter?.avatar || "https://i.ibb.co/qgbdqZ3/male.png"}
-              onError={(e) => {
-                e.target.src = "https://i.ibb.co/qgbdqZ3/male.png";
-              }}
-              alt="Avatar"
-              className="max-w-none h-full"
-            />
-          </div>
+        <div className="flex items-center space-x-3">
+          <NavLink to={`/user/${blogWriter?._id}`}>
+            <div className="rounded-full p-0 w-10 h-10 border border-gray-300 overflow-hidden flex items-center justify-center bg-white">
+              <img
+                src={blogWriter?.avatar || "https://i.ibb.co/qgbdqZ3/male.png"}
+                onError={(e) => {
+                  e.target.src = "https://i.ibb.co/qgbdqZ3/male.png";
+                }}
+                alt="Avatar"
+                className="max-w-none h-full"
+              />
+            </div>
+          </NavLink>
           <div>
             <h1>{blog.name}</h1>
           </div>

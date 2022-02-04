@@ -8,14 +8,19 @@ const Blogs = ({ isTwoColumn }) => {
   const [pageNumbers, setPageNumbers] = useState([1]);
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:5000/blogs?currentPage=${currentPage}`)
+    fetch(
+      `https://adventure-pathway.herokuapp.com/blogs?currentPage=${currentPage}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setBlogs(data.blogs);
         const count = data.count;
         setPageNumbers([...Array(Math.ceil(count / 5)).keys()]);
         setIsLoading(false);
-        window.scrollTo(0, 0);
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
       })
       .catch((err) => console.log(err));
   }, [currentPage]);

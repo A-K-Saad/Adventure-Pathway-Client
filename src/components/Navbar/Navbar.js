@@ -46,7 +46,7 @@ const Navbar = () => {
                   >
                     Blogs
                   </NavLink>
-                  {user?.email && (
+                  {/* {user?.email && (
                     <NavLink
                       onMouseUp={(e) => ripple.create(e, "light")}
                       to="/feed"
@@ -54,7 +54,7 @@ const Navbar = () => {
                     >
                       Feed
                     </NavLink>
-                  )}
+                  )} */}
                   <NavLink
                     onMouseUp={(e) => ripple.create(e, "light")}
                     to="/reviews"

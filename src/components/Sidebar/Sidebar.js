@@ -39,7 +39,20 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
             </button>
           </div>
           <hr />
-          <ul className="mt-6">
+          <ul>
+            <NavLink
+              onMouseUp={(e) => ripple.create(e, "light")}
+              exact
+              to="/"
+              className="flex w-full justify-between text-gray-600 hover:text-blue-700 hover:bg-blue-100 cursor-pointer items-center py-3 px-8 text-md"
+              activeClassName="text-blue-700 bg-blue-100"
+            >
+              <div className="flex items-center">
+                <i className="fas fa-home w-6"></i>
+                <span className="ml-2">Home</span>
+              </div>
+            </NavLink>
+            <hr />
             <NavLink
               onMouseUp={(e) => ripple.create(e, "light")}
               exact
@@ -52,6 +65,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
                 <span className="ml-2">Dashboard</span>
               </div>
             </NavLink>
+            <hr />
             {isAdmin && (
               <>
                 <NavLink
@@ -65,6 +79,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
                     <span className="ml-2">Manage Blogs</span>
                   </div>
                 </NavLink>
+                <hr />
                 <NavLink
                   onMouseUp={(e) => ripple.create(e, "light")}
                   exact
@@ -77,6 +92,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
                     <span className="ml-2">Manage Users</span>
                   </div>
                 </NavLink>
+                <hr />
               </>
             )}
             <NavLink
@@ -91,6 +107,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
                 <span className="ml-2">Write Blog</span>
               </div>
             </NavLink>
+            <hr />
             {!isAdmin && (
               <>
                 <NavLink
@@ -105,6 +122,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
                     <span className="ml-2">Add A Review</span>
                   </div>
                 </NavLink>
+                <hr />
               </>
             )}
             <NavLink
@@ -119,6 +137,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
                 <span className="ml-2">Overview</span>
               </div>
             </NavLink>
+            <hr />
           </ul>
         </div>
       </div>

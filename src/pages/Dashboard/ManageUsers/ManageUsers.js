@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import Alert from "../../../hooks/Alert";
 import useAuth from "../../../hooks/useAuth";
 
@@ -6,6 +7,7 @@ const ManageUsers = () => {
   const [users, setUsers] = useState([]);
   const [adminEmail, setAdminEmail] = useState("");
   const { user } = useAuth();
+  const userEmail = user?.email;
   const { sweetAlert } = Alert();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -20,7 +22,7 @@ const ManageUsers = () => {
 
   const UserAvatar = ({ user }) => {
     return (
-      <div className="w-12 relative">
+      <NavLink to={`/user/${user._id}`} className="w-12 relative">
         <div className="rounded-full w-10 h-10 border border-gray-300 overflow-hidden">
           <img
             src={user.avatar}
@@ -47,7 +49,7 @@ const ManageUsers = () => {
             d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
           ></path>
         </svg>
-      </div>
+      </NavLink>
     );
   };
 
@@ -61,7 +63,7 @@ const ManageUsers = () => {
           "content-type": "application/json",
         },
         body: JSON.stringify({
-          requester: user?.email,
+          requester: userEmail,
           request: requestFor,
           role: role,
         }),
@@ -95,10 +97,10 @@ const ManageUsers = () => {
             ></i>
           )}
         </div>
-        <div className="mt-3">
+        <NavLink to={`/user/${user._id}`} className="mt-3">
           <h4 className="text-md">{user.displayName}</h4>
           <p className="text-sm text-gray-400 truncate">{user.email}</p>
-        </div>
+        </NavLink>
       </div>
     );
   };
